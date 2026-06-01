@@ -1,0 +1,572 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isabella Paulis | Cineasta</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       RESET E CONFIGURAÇÕES GERAIS
+    ========================================== */
+
+    :root {
+      --dark: #352F44;
+      --medium: #5C5470;
+      --light: #B9B4C7;
+      --cream: #FAF0E6;
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    /* =========================================
+       NAVBAR
+    ========================================== */
+
+    .navbar {
+      background-color: rgba(250, 240, 230, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(53, 47, 68, 0.08);
+    }
+
+    .navbar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .nav-link {
+      color: var(--medium);
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--dark);
+    }
+
+    /* =========================================
+       HERO SECTION
+    ========================================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(53,47,68,0.95),
+          rgba(92,84,112,0.92)
+        );
+      color: var(--cream);
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero-badge {
+      background-color: rgba(250,240,230,0.12);
+      border: 1px solid rgba(250,240,230,0.2);
+      color: var(--cream);
+      padding: 10px 18px;
+      border-radius: 999px;
+      margin-bottom: 25px;
+      display: inline-block;
+      animation: fadeUp 0.8s ease;
+    }
+
+    .hero .btn {
+      margin-top: 30px;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-weight: 500;
+      transition: 0.3s ease;
+      animation: fadeUp 1.4s ease;
+    }
+
+    .btn-custom {
+      background-color: var(--cream);
+      color: var(--dark);
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background-color: var(--light);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================
+       SOBRE MIM
+    ========================================== */
+
+    .about-section {
+      background-color: #f5ebe1;
+    }
+
+    .about-box {
+      background-color: white;
+      padding: 50px;
+      border-radius: 28px;
+      box-shadow: 0 10px 40px rgba(53,47,68,0.08);
+      animation: fadeUp 1s ease;
+    }
+
+    .section-title {
+      font-size: 3.5rem;
+      margin-bottom: 25px;
+      color: var(--dark);
+    }
+
+    .about-text {
+      line-height: 1.9;
+      color: var(--medium);
+      font-size: 1.05rem;
+    }
+
+    /* =========================================
+       PROJETOS
+    ========================================== */
+
+    .project-card {
+      border: none;
+      border-radius: 24px;
+      overflow: hidden;
+      background-color: white;
+      box-shadow: 0 8px 30px rgba(53,47,68,0.08);
+      transition: all 0.4s ease;
+      height: 100%;
+      animation: fadeUp 1s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 45px rgba(53,47,68,0.12);
+    }
+
+    .project-image {
+      height: 240px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--medium),
+          var(--dark)
+        );
+    }
+
+    .card-body {
+      padding: 30px;
+    }
+
+    .card-title {
+      font-size: 2rem;
+      color: var(--dark);
+    }
+
+    .card-text {
+      color: var(--medium);
+      line-height: 1.8;
+    }
+
+    .badge-custom {
+      background-color: var(--light);
+      color: var(--dark);
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 999px;
+    }
+
+    /* =========================================
+       CONTATO
+    ========================================== */
+
+    .contact-section {
+      background:
+        linear-gradient(
+          135deg,
+          var(--dark),
+          var(--medium)
+        );
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .contact-card {
+      background-color: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 50px;
+      backdrop-filter: blur(8px);
+      animation: fadeUp 1s ease;
+    }
+
+    .contact-email {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: 0.3s ease;
+    }
+
+    .contact-email:hover {
+      color: var(--light);
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================== */
+
+    footer {
+      background-color: #2a2436;
+      color: rgba(250,240,230,0.7);
+      text-align: center;
+      padding: 25px 0;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================
+       ANIMAÇÕES
+    ========================================== */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================
+       RESPONSIVIDADE
+    ========================================== */
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+
+      .section-title {
+        font-size: 2.6rem;
+      }
+
+      .about-box,
+      .contact-card {
+        padding: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Isabella Paulis</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#menu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#sobre">Sobre</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#projetos">Projetos</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div class="hero-badge">
+            Cineasta • Terror Sobrenatural
+          </div>
+
+          <h1>
+            Isabella<br>
+            Paulis
+          </h1>
+
+          <p>
+            Cineasta em formação apaixonada pela indústria do terror sobrenatural,
+            explorando narrativas psicológicas, atmosferas inquietantes e experiências
+            audiovisuais marcadas pela tensão e pela subjetividade.
+          </p>
+
+          <a href="#projetos" class="btn btn-custom">
+            Ver Projetos
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Mim -->
+  <section id="sobre" class="about-section">
+    <div class="container">
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <div class="about-box">
+
+            <h2 class="section-title">
+              Sobre Mim
+            </h2>
+
+            <p class="about-text">
+              Ainda no ensino médio, descobri uma paixão por filmes, e depois de
+              pesquisar muito e refletir sobre minhas preferências, me encontrei na
+              indústria do terror sobrenatural.
+            </p>
+
+            <p class="about-text">
+              Movida por esse interesse, passei meses estudando para o vestibular do
+              curso de Cinema e Audiovisual na ESPM (2026.1), e consegui uma bolsa de
+              estudo meritocrática e socioeconômica de 100%.
+            </p>
+            
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <h2 class="section-title">Projetos</h2>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Projeto 1 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card project-card">
+
+      <img
+		src="A Cartomante.jpg"
+		class="img-fluid"
+		alt="A Cartomante">
+
+            <div class="card-body">
+
+              <span class="badge badge-custom mb-3">
+                Curta-metragem • 2026
+              </span>
+
+              <h3 class="card-title">
+                A Cartomante
+              </h3>
+
+              <p class="card-text">
+                Trabalho acadêmico do primeiro semestre no qual fui roteirista.
+                Uma adaptação do conto “A Cartomante”, de Machado de Assis,
+                produzida por uma equipe de 8 estudantes de Cinema e Audiovisual
+                da ESPM.
+              </p>
+
+      <a
+		href="https://youtu.be/mAXJaRwl2vQ?si=6COe2Ud-eV17edE2"
+		target="_blank"
+		class="btn btn-dark rounded-pill mt-2">
+		Assistir ao filme
+</a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Projeto 2 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card project-card">
+
+      <img
+		src="Presença.png"
+		class="img-fluid"
+		alt="Presença">
+
+            <div class="card-body">
+
+              <span class="badge badge-custom mb-3">
+                Curta-metragem • 2026
+              </span>
+
+              <h3 class="card-title">
+                Presença
+              </h3>
+
+              <p class="card-text">
+                Trabalho acadêmico do primeiro semestre no qual fui responsável
+                por todas as etapas de produção, incluindo atuação. Um projeto
+                totalmente autoral, desenvolvido sem interferências externas.
+              </p>
+
+      <a
+		href="https://youtu.be/BbiDvY1azcA?si=bhzk7fIgsNJP_9V_"
+		target="_blank"
+		class="btn btn-dark rounded-pill mt-2">
+		Assistir ao filme
+</a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Projeto 3 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card project-card">
+
+      <img
+		src="Observada.png"
+		class="img-fluid"
+		alt="Observada">
+
+            <div class="card-body">
+
+              <span class="badge badge-custom mb-3">
+                Curta-metragem • 2026
+              </span>
+
+              <h3 class="card-title">
+                Observada
+              </h3>
+
+              <p class="card-text">
+                Trabalho acadêmico do primeiro semestre no qual fui responsável
+                por todas as etapas de produção e atuação. O projeto seguiu a base
+                de um storyboard proposto pelo professor, com liberdade criativa
+                para alterações e expansão narrativa.
+              </p>
+
+      <a
+		href="https://youtu.be/EEO6Foy5m7c?si=rF1k4oBwv2HHdZp5"
+		target="_blank"
+		class="btn btn-dark rounded-pill mt-2">
+		Assistir ao filme
+</a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="contact-section">
+
+    <div class="container">
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+          <div class="contact-card">
+
+            <h2 class="section-title text-light">
+              Contato
+            </h2>
+
+            <p class="mb-4">
+              Interessada em colaborações, projetos audiovisuais
+              e experiências criativas no universo do cinema.
+            </p>
+
+            <a
+              href="mailto:usuallyella@gmail.com"
+              class="contact-email"
+            >
+              usuallyella@gmail.com
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Isabella Paulis — Portfólio Pessoal
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
